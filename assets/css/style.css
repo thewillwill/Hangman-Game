@@ -1,0 +1,69 @@
+.word-placeholder  {
+	font-size: 50px;
+	letter-spacing: 30px;
+
+}
+
+.guessed-letters {
+	text-decoration: underline;
+}
+
+#ticket-container {
+	background-image: url("../images/dots.png");
+	border-radius: 2px;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+	/*height: 200px;*/
+}
+
+#ticket-stub, #ticket-main {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	height: 100%;
+	box-sizing: border-box;
+	padding-left: 30px;
+}
+
+#ticket-stub-top, #ticket-main-top {
+	background-color: #0069c0; /*https://material.io/color/#!/?view.left=0&view.right=0&primary.color=2196F3*/
+	color: white;
+	font-weight: bold;
+	/*padding: 10px 10px;*/
+	margin: 0px;
+
+}
+
+#ticket-stub-top {
+	border-left: 1px grey dashed;
+	/*padding-left: 20px;*/
+
+}
+
+
+#ticket-stub {
+	box-sizing: border-box;
+	border-left: 1px grey dashed;
+	padding-right: 25px;
+	padding-left: 25px;
+}
+
+.remove-space {
+	margin-left: 0px;
+	margin-right: 0px;
+}
+
+
+
+/* ------------------- Vertical Barcode -------------------- */
+ 
+.bar1 { border-bottom: 1px solid black;}
+.bar2 { border-bottom: 3px solid black; padding: 2px }
+.bar3 { border-bottom: 1px solid black; padding: 1px }
+.bar4 { border-bottom: 1px solid black;}
+.bar5 { border-bottom: 3px solid black; padding: 1px }
+.bar6 { border-bottom: 1px solid black; padding: 1px }
+.bar7 { border-bottom: 3px solid black;}
+.bar8 { border-bottom: 3px solid black; padding: 1px }
+.bar9 { border-bottom: 1px solid black; padding: 1px }
+.bar10 { border-bottom: 1px solid black;}
+.bar11 { border-bottom: 3px solid black; padding: 1px }
+.bar12 { border-bottom: 1px solid black; padding: 1px }

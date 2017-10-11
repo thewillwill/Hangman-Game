@@ -1,82 +1,246 @@
-
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
-
-    <title>Narrow Jumbotron Template for Bootstrap</title>
-
+    <title>Hangman Game</title>
     <!-- Bootstrap core CSS -->
-    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
-
+    <link href="https://v4-alpha.getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
-    <link href="narrow-jumbotron.css" rel="stylesheet">
-  </head>
+    <link href="https://v4-alpha.getbootstrap.com/examples/narrow-jumbotron/narrow-jumbotron.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+</head>
 
-  <body>
-
+<body>
     <div class="container">
-      <div class="header clearfix">
-        <nav>
-          <ul class="nav nav-pills float-right">
-            <li class="nav-item">
-              <a class="nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Contact</a>
-            </li>
-          </ul>
-        </nav>
-        <h3 class="text-muted">Project name</h3>
-      </div>
-
-      <div class="jumbotron">
-        <h1 class="display-3">Jumbotron heading</h1>
-        <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-        <p><a class="btn btn-lg btn-success" href="#" role="button">Sign up today</a></p>
-      </div>
-
-      <div class="row marketing">
-        <div class="col-lg-6">
-          <h4>Subheading</h4>
-          <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
-
-          <h4>Subheading</h4>
-          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
-
-          <h4>Subheading</h4>
-          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+        <div class="header clearfix">
+            <h3 class="text-muted">Hang Man</h3>
         </div>
 
-        <div class="col-lg-6">
-          <h4>Subheading</h4>
-          <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
 
-          <h4>Subheading</h4>
-          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
 
-          <h4>Subheading</h4>
-          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+<!-- ticket try 2 -->
+
+
+<div id="ticket-container">
+            <!-- top of ticket -->
+            <div class="row remove-space">
+              <div class="col-9" id="ticket-main-top">
+                Capital City Airlines
+              </div>
+                <div class="col-3" id="ticket-stub-top">Boarding Pass</div>
+              </div>
+          
+            <!-- row containing entire 'ticket' -->
+            <div class="row">
+                <div class="col-9" id="ticket-main">
+                    <div class="row">
+                        <!-- column for barcode -->
+                        <div class="col-2">
+                            <div class="bar1"></div>
+                            <div class="bar2"></div>
+                            <div class="bar1"></div>
+                            <div class="bar2"></div>
+                            <div class="bar3"></div>
+                            <div class="bar4"></div>
+                            <div class="bar5"></div>
+                            <div class="bar3"></div>
+                            <div class="bar3"></div>
+                            <div class="bar1"></div>
+                            <div class="bar2"></div>
+                            <div class="bar3"></div>
+                            <div class="bar4"></div>
+                            <div class="bar5"></div>
+                            <div class="bar3"></div>
+                            <div class="bar3"></div>
+                            <div class="bar4"></div>
+                            <div class="bar3"></div>
+                            <div class="bar4"></div>
+                        </div>
+                        <div class="col-10">
+                            <div class="row">
+                                <div class="col-4">
+                                    Guesses
+                                </div>
+                                <div class="col-4">
+                                    Wins
+                                </div>
+                                <div class="col-4">
+                                    Losses
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3" id="ticket-stub">
+                    <div class="row">
+
+                        <div class="col-9">Far Right</div>
+                        <!-- column for barcode -->                        
+                        <div class="col-3">
+                            <div class="bar1"></div>
+                            <div class="bar2"></div>
+                            <div class="bar1"></div>
+                            <div class="bar2"></div>
+                            <div class="bar3"></div>
+                            <div class="bar4"></div>
+                            <div class="bar5"></div>
+                            <div class="bar3"></div>
+                            <div class="bar3"></div>
+                            <div class="bar1"></div>
+                            <div class="bar2"></div>
+                            <div class="bar3"></div>
+                            <div class="bar4"></div>
+                            <div class="bar5"></div>
+                            <div class="bar3"></div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
         </div>
-      </div>
 
-      <footer class="footer">
-        <p>&copy; Company 2017</p>
-      </footer>
 
-    </div> <!-- /container -->
 
+
+
+
+
+
+
+<!-- top of ticket is separate row -->
+
+
+
+        <div id="ticket-container">
+            <!-- top of ticket -->
+            <div class="row remove-space">
+              <div class="col-9" id="ticket-main-top">
+                Capital City Airlines
+              </div>
+                <div class="col-3" id="ticket-stub-top">Boarding Pass</div>
+              </div>
+          
+            <!-- row containing entire 'ticket' -->
+            <div class="row">
+                <div class="col-9" id="ticket-main">
+                    <div class="row">
+                        <!-- column for barcode -->
+                        <div class="col-2">
+                            <div class="bar1"></div>
+                            <div class="bar2"></div>
+                            <div class="bar1"></div>
+                            <div class="bar2"></div>
+                            <div class="bar3"></div>
+                            <div class="bar4"></div>
+                            <div class="bar5"></div>
+                            <div class="bar3"></div>
+                            <div class="bar3"></div>
+                            <div class="bar1"></div>
+                            <div class="bar2"></div>
+                            <div class="bar3"></div>
+                            <div class="bar4"></div>
+                            <div class="bar5"></div>
+                            <div class="bar3"></div>
+                            <div class="bar3"></div>
+                            <div class="bar4"></div>
+                            <div class="bar3"></div>
+                            <div class="bar4"></div>
+                        </div>
+                        <div class="col-10">
+                            <div class="row">
+                                <div class="col-4">
+                                    Guesses
+                                </div>
+                                <div class="col-4">
+                                    Wins
+                                </div>
+                                <div class="col-4">
+                                    Losses
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3" id="ticket-stub">
+                    <div class="row">
+
+                        <div class="col-9">Far Right</div>
+                        <!-- column for barcode -->                        
+                        <div class="col-3">
+                            <div class="bar1"></div>
+                            <div class="bar2"></div>
+                            <div class="bar1"></div>
+                            <div class="bar2"></div>
+                            <div class="bar3"></div>
+                            <div class="bar4"></div>
+                            <div class="bar5"></div>
+                            <div class="bar3"></div>
+                            <div class="bar3"></div>
+                            <div class="bar1"></div>
+                            <div class="bar2"></div>
+                            <div class="bar3"></div>
+                            <div class="bar4"></div>
+                            <div class="bar5"></div>
+                            <div class="bar3"></div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- Game working below -->
+    <div class="container">
+        <div class="header clearfix">
+            <h3 class="text-muted">Hang Man</h3>
+        </div>
+        <div class="jumbotron">
+            <h1 class="display-5">Let's Play</h1>
+            <p class="lead"><span id="message">The rules are simple</span></p>
+            <div class="row">
+                <div class="col-12" id="word-placeholder"></div>
+            </div>
+            <div class="row">
+                <div class="col-4 text-right">Guessed Letters:</div>
+                <div class="col-8 text-left" id="guessed-letters"></div>
+            </div>
+        </div>
+        <div class="row marketing">
+            <div class="col-lg-4 text-center">
+                <h4>Wins</h4>
+                <p><span id="wins-text">0</span></p>
+            </div>
+            <div class="col-lg-4 text-center">
+                <h4>Guesses</h4>
+                <p><span id="guesses-text">0</span></p>
+            </div>
+            <div class="col-lg-4 text-center">
+                <h4>Losses</h4>
+                <p><span id="losses-text">0</span></p>
+            </div>
+        </div>
+        <footer class="footer">
+            <p>&copy; William Brooks 2017</p>
+        </footer>
+    </div>
+    <!-- /container -->
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
+    <!-- Hangman Game Logic-->
+    <script src="./assets/javascript/game.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
-  </body>
+    <script src="https://v4-alpha.getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
+</body>
+
 </html>
