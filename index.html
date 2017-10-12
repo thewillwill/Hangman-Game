@@ -6,128 +6,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Hangman Game</title>
+    <title>Destination: Unknown | A Hangman Game</title>
     <!-- Bootstrap core CSS -->
     <link href="https://v4-alpha.getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="https://v4-alpha.getbootstrap.com/examples/narrow-jumbotron/narrow-jumbotron.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Special+Elite" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
 </head>
 
 <body>
+    <!-- I have placed the javascript code here so that my form submit works. I understand there is performance disadvantages -->
+    <script src="./assets/javascript/game.js"></script>
     <div class="container">
         <div class="header clearfix">
-            <h3 class="text-muted">Hang Man</h3>
+            <h3 class="text-muted special-text">Destination: Unkown</h3>
         </div>
-
-
-
-<!-- ticket try 2 -->
-
-
-<div id="ticket-container">
-            <!-- top of ticket -->
-            <div class="row remove-space">
-              <div class="col-9" id="ticket-main-top">
-                Capital City Airlines
-              </div>
-                <div class="col-3" id="ticket-stub-top">Boarding Pass</div>
-              </div>
-          
-            <!-- row containing entire 'ticket' -->
-            <div class="row">
-                <div class="col-9" id="ticket-main">
-                    <div class="row">
-                        <!-- column for barcode -->
-                        <div class="col-2">
-                            <div class="bar1"></div>
-                            <div class="bar2"></div>
-                            <div class="bar1"></div>
-                            <div class="bar2"></div>
-                            <div class="bar3"></div>
-                            <div class="bar4"></div>
-                            <div class="bar5"></div>
-                            <div class="bar3"></div>
-                            <div class="bar3"></div>
-                            <div class="bar1"></div>
-                            <div class="bar2"></div>
-                            <div class="bar3"></div>
-                            <div class="bar4"></div>
-                            <div class="bar5"></div>
-                            <div class="bar3"></div>
-                            <div class="bar3"></div>
-                            <div class="bar4"></div>
-                            <div class="bar3"></div>
-                            <div class="bar4"></div>
-                        </div>
-                        <div class="col-10">
-                            <div class="row">
-                                <div class="col-4">
-                                    Guesses
-                                </div>
-                                <div class="col-4">
-                                    Wins
-                                </div>
-                                <div class="col-4">
-                                    Losses
-                                </div>
-                            </div>
-                        </div>
+        <div class="container">
+            <!-- Section to get user name at start of game -->
+            <div class="jumbotron">
+                <p class="lead"><span id="message">How well do you know the 197 capital cities of the world?</span></p>
+                <div class="row" id="jumbotron-visible">
+                    <div class="col-12 text-right">
+                        <form class="form-inline" onsubmit="return false">
+                            <label class="sr-only" for="inlineFormInput">First Name</label>
+                            <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="firstNameInput" placeholder="First Name">
+                            <label class="sr-only" for="inlineFormInput">Last Name</label>
+                            <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="lastNameInput" placeholder="Last Name">
+                            <button onclick="enterName()" class="btn btn-primary">Let's Play</button>
                     </div>
-                </div>
-                <div class="col-3" id="ticket-stub">
-                    <div class="row">
-
-                        <div class="col-9">Far Right</div>
-                        <!-- column for barcode -->                        
-                        <div class="col-3">
-                            <div class="bar1"></div>
-                            <div class="bar2"></div>
-                            <div class="bar1"></div>
-                            <div class="bar2"></div>
-                            <div class="bar3"></div>
-                            <div class="bar4"></div>
-                            <div class="bar5"></div>
-                            <div class="bar3"></div>
-                            <div class="bar3"></div>
-                            <div class="bar1"></div>
-                            <div class="bar2"></div>
-                            <div class="bar3"></div>
-                            <div class="bar4"></div>
-                            <div class="bar5"></div>
-                            <div class="bar3"></div>
-                        </div>
-
-                    </div>
-
+                    </form>
                 </div>
             </div>
         </div>
-
-
-
-
-
-
-
-
-
-<!-- top of ticket is separate row -->
-
-
-
-        <div id="ticket-container">
+        <!-- entire ticket-->
+        <div id="ticket-container-hidden">
+            <div id="stamp-visible">Flight Cancelled</div>
             <!-- top of ticket -->
-            <div class="row remove-space">
-              <div class="col-9" id="ticket-main-top">
-                Capital City Airlines
-              </div>
-                <div class="col-3" id="ticket-stub-top">Boarding Pass</div>
-              </div>
-          
-            <!-- row containing entire 'ticket' -->
-            <div class="row">
-                <div class="col-9" id="ticket-main">
+            <div class="row no-gutters">
+                <div class="col-9 rounded-top" id="ticket-main-top">
+                    Capital City Airlines
+                </div>
+                <div class="col-3 rounded-top" id="ticket-stub-top">Boarding Pass</div>
+            </div>
+            <!-- lower (big height) part of 'ticket' -->
+            <div class="row no-gutters">
+                <!-- col container larger width (left) part of 'ticket' -->
+                <div class="col-9 rounded-left" id="ticket-main">
                     <div class="row">
                         <!-- column for barcode -->
                         <div class="col-2">
@@ -150,27 +75,128 @@
                             <div class="bar4"></div>
                             <div class="bar3"></div>
                             <div class="bar4"></div>
+                            <div class="bar1"></div>
+                            <div class="bar2"></div>
+                            <div class="bar3"></div>
+                            <div class="bar3"></div>
+                            <div class="bar4"></div>
+                            <div class="bar3"></div>
+                            <div class="bar4"></div>
+                            <div class="bar3"></div>
+                            <div class="bar3"></div>
+                            <div class="bar1"></div>
+                            <div class="bar2"></div>
+                            <div class="bar3"></div>
+                            <div class="bar4"></div>
+                            <div class="bar5"></div>
+                            <div class="bar3"></div>
+                            <div class="bar1"></div>
+                            <div class="bar2"></div>
+                            <div class="bar3"></div>
+                            <div class="bar3"></div>
+                            <div class="bar4"></div>
+                            <div class="bar3"></div>
+                            <div class="bar4"></div>
                         </div>
+                        <!-- col for ticket information next to main barcode -->
                         <div class="col-10">
                             <div class="row">
-                                <div class="col-4">
-                                    Guesses
+                                <!-- START Departure and Destination info -->
+                                <div class="col-12">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="row">
+                                                <div class="col-4 name-box name-box-left">
+                                                    <div class="city-box-header">
+                                                        Last Name
+                                                    </div>
+                                                    <div class="name-box-body" id="last-name-text">
+                                                        Worldly
+                                                    </div>
+                                                </div>
+                                                <div class="col-4 name-box">
+                                                    <div class="name-box-header">
+                                                        First Name
+                                                    </div>
+                                                    <div class="name-box-body" id="first-name-text">Traveller
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="col-4">
-                                    Wins
+                                <!-- end departure and destination info -->
+                                <!-- START guesses, wins & losses boxes -->
+                                <div class="col-12">
+                                    <div class="row justify-content-center">
+                                        <div class="col-3 grey-box">
+                                            <div class=greybox-header>
+                                                Guesses
+                                            </div>
+                                            <div class="grey-box-body text-center" id="guesses-text">
+                                                0
+                                            </div>
+                                        </div>
+                                        <div class="col-3 grey-box">
+                                            <div class="greybox-header">
+                                                Wins
+                                            </div>
+                                            <div class="grey-box-body text-center" id="wins-text">
+                                                0
+                                            </div>
+                                        </div>
+                                        <div class="col-3 grey-box">
+                                            <div class=greybox-header>
+                                                Losses
+                                            </div>
+                                            <div class="grey-box-body text-center" id="losses-text">
+                                                0
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="col-4">
-                                    Losses
+                                <!-- END guesses, wins & losses boxes -->
+                                <!-- START Departure and Destination info -->
+                                <div class="col-12">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="row">
+                                                <div class="col-5 city-box city-box-left">
+                                                    <div class="city-box-header">
+                                                        Departure City
+                                                    </div>
+                                                    <div class="city-box-body">
+                                                        San Francisco
+                                                    </div>
+                                                </div>
+                                                <div class="col-5 city-box">
+                                                    <div class="city-box-header">
+                                                        Destination City
+                                                    </div>
+                                                    <div class="city-box-body" id="word-placeholder">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
+                                <!-- end departure and destination info -->
                             </div>
                         </div>
                     </div>
                 </div>
+                <!-- ticket stub body -->
                 <div class="col-3" id="ticket-stub">
-                    <div class="row">
-
-                        <div class="col-9">Far Right</div>
-                        <!-- column for barcode -->                        
+                    <div class="row justify-content-right">
+                        <div class="col-7 stub-grey-box">
+                            <div class="stub-greybox-header">
+                                Letters Guessed
+                            </div>
+                            <div class="stub-grey-box-body text-center" id="guessed-letters">
+                                32a
+                            </div>
+                        </div>
+                        <!-- column for barcode -->
                         <div class="col-3">
                             <div class="bar1"></div>
                             <div class="bar2"></div>
@@ -187,58 +213,45 @@
                             <div class="bar4"></div>
                             <div class="bar5"></div>
                             <div class="bar3"></div>
+                            <div class="bar1"></div>
+                            <div class="bar2"></div>
+                            <div class="bar3"></div>
+                            <div class="bar3"></div>
+                            <div class="bar4"></div>
+                            <div class="bar3"></div>
+                            <div class="bar4"></div>
+                            <div class="bar3"></div>
+                            <div class="bar3"></div>
+                            <div class="bar1"></div>
+                            <div class="bar2"></div>
+                            <div class="bar3"></div>
+                            <div class="bar4"></div>
+                            <div class="bar5"></div>
+                            <div class="bar3"></div>
+                            <div class="bar1"></div>
+                            <div class="bar2"></div>
+                            <div class="bar3"></div>
+                            <div class="bar3"></div>
+                            <div class="bar4"></div>
+                            <div class="bar3"></div>
+                            <div class="bar4"></div>
                         </div>
-
                     </div>
-
                 </div>
             </div>
         </div>
     </div>
-
-
-
-
-    <!-- Game working below -->
-    <div class="container">
-        <div class="header clearfix">
-            <h3 class="text-muted">Hang Man</h3>
-        </div>
-        <div class="jumbotron">
-            <h1 class="display-5">Let's Play</h1>
-            <p class="lead"><span id="message">The rules are simple</span></p>
-            <div class="row">
-                <div class="col-12" id="word-placeholder"></div>
-            </div>
-            <div class="row">
-                <div class="col-4 text-right">Guessed Letters:</div>
-                <div class="col-8 text-left" id="guessed-letters"></div>
-            </div>
-        </div>
-        <div class="row marketing">
-            <div class="col-lg-4 text-center">
-                <h4>Wins</h4>
-                <p><span id="wins-text">0</span></p>
-            </div>
-            <div class="col-lg-4 text-center">
-                <h4>Guesses</h4>
-                <p><span id="guesses-text">0</span></p>
-            </div>
-            <div class="col-lg-4 text-center">
-                <h4>Losses</h4>
-                <p><span id="losses-text">0</span></p>
-            </div>
-        </div>
-        <footer class="footer">
-            <p>&copy; William Brooks 2017</p>
-        </footer>
+    <!-- end container -->
+    <footer class="footer text-center text-muted">
+        <p>&copy; William Brooks - 2017</p>
+    </footer>
     </div>
     <!-- /container -->
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <!-- Hangman Game Logic-->
-    <script src="./assets/javascript/game.js"></script>
+    <script src="./assets/javascript/game_backup2.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="https://v4-alpha.getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
 </body>
