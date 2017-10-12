@@ -168,6 +168,7 @@
                losses++;
                lossesText.innerHTML = losses;
                message.innerHTML = "Too Late, you missed your flight to " + country + ".  Press Any key to start again";
+               document.getElementById('stamp-hidden').id = "stamp-visible";
                displayAnswer();
                newGame = true;
            }
@@ -203,5 +204,4 @@
 
    function displayAnswer() {
        wordPlaceHolder.innerHTML = capitalCity;
-       document.getElementById('stamp-hidden').id = "stamp-visible";
    }
