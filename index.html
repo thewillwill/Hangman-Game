@@ -11,29 +11,42 @@
     <link href="https://v4-alpha.getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="https://v4-alpha.getbootstrap.com/examples/narrow-jumbotron/narrow-jumbotron.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Special+Elite" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Special+Elite|Orbitron" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+    <script src="https://use.fontawesome.com/19be11f037.js"></script>
 </head>
 
 <body>
-    <!-- I have placed the javascript code here so that my form submit works. I understand there is performance disadvantages -->
-    <script src="./assets/javascript/game.js"></script>
+    <!-- I have placed the javascript code here so that my form submit works. I understand with real applications there will be a page load disadvantage -->
+    <script src="./assets/javascript/javascript.js"></script>
     <div class="container">
         <div class="header clearfix">
-            <h3 class="text-muted special-text">Destination: Unkown</h3>
+            <h2 class="text-muted special-text">Destination: Unknown.</h2>
         </div>
         <div class="container">
+
+            
             <!-- Section to get user name at start of game -->
             <div class="jumbotron">
-                <p class="lead"><span id="message">How well do you know the 197 capital cities of the world?</span></p>
+                <!-- CHANGE - move nested <p> tag -->
+                <p class="lead"><span id="message1">Welcome to World Capital Airlines<i class="fa fa-plane" aria-hidden="true"></i></span></p>
+                <p><span id="message2">It's time to check-in for your mystery flight</span></p>
+                <div class="row justify-content-center">
+                    <div class="col-3 rounded" id="clock-text-hidden"c>
+                     XX:XX  
+                    </div>
+                </div>
                 <div class="row" id="jumbotron-visible">
+                     <div class="col-12 text-right">
+                    <p>
+                    </div>
                     <div class="col-12 text-right">
                         <form class="form-inline" onsubmit="return false">
                             <label class="sr-only" for="inlineFormInput">First Name</label>
                             <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="firstNameInput" placeholder="First Name">
                             <label class="sr-only" for="inlineFormInput">Last Name</label>
                             <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="lastNameInput" placeholder="Last Name">
-                            <button onclick="enterName()" class="btn btn-primary">Let's Play</button>
+                            <button onclick="enterName()" class="btn btn-primary">Check-In</button>
                     </div>
                     </form>
                 </div>
@@ -41,11 +54,11 @@
         </div>
         <!-- entire ticket-->
         <div id="ticket-container-hidden">
-            <div id="stamp-visible">Flight Cancelled</div>
+            <div id="stamp-hidden">Flight Departed</div>
             <!-- top of ticket -->
             <div class="row no-gutters">
                 <div class="col-9 rounded-top" id="ticket-main-top">
-                    Capital City Airlines
+                    <span id="airline-title">World Capital Airlines</span> <i class="fa fa-plane" aria-hidden="true"></i>
                 </div>
                 <div class="col-3 rounded-top" id="ticket-stub-top">Boarding Pass</div>
             </div>
@@ -131,10 +144,10 @@
                                     <div class="row justify-content-center">
                                         <div class="col-3 grey-box">
                                             <div class=greybox-header>
-                                                Guesses
+                                                Boarding At
                                             </div>
-                                            <div class="grey-box-body text-center" id="guesses-text">
-                                                0
+                                            <div class="grey-box-body text-center" id="boarding-time-text">
+                                                13:08
                                             </div>
                                         </div>
                                         <div class="col-3 grey-box">
@@ -251,7 +264,7 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <!-- Hangman Game Logic-->
-    <script src="./assets/javascript/game_backup2.js"></script>
+    <script src="./assets/javascript/javascript.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="https://v4-alpha.getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
 </body>

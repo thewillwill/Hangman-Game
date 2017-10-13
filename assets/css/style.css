@@ -1,3 +1,5 @@
+/*change styling to classes*/
+
 
 .footer {
 
@@ -15,7 +17,20 @@
 .special-text {
 
 	font-family: 'Special Elite', cursive;
+	letter-spacing: 2px;
+}
 
+#clock-text-visible {
+	font-family: 'Orbitron', sans-serif;
+	font-size: 2em;
+	color: #00FF33;
+	padding: 10px;
+	background-color: #759B84;
+
+}
+
+#clock-text-hidden {
+	display: none;
 }
 
 
@@ -55,11 +70,19 @@
 
 
 #ticket-stub-top, #ticket-main-top {
-	background-color: #0069c0; /*https://material.io/color/#!/?view.left=0&view.right=0&primary.color=2196F3*/
+	background-color: #0069c0; 
+
 	color: white;
 	font-weight: bold;
 	padding: 10px 10px;
-	/*margin: 0px;*/
+
+}
+
+#ticket-stub-top-red, #ticket-main-top-red {
+	background-color: #c62828; 
+	color: white;
+	font-weight: bold;
+	padding: 10px 10px;
 
 }
 
@@ -168,6 +191,7 @@
 	left: 50px;
 	z-index: 1;
 	font-size: 48px;
+	
 	/* Rotate div */
     -ms-transform: rotate(7deg); /* IE 9 */
     -webkit-transform: rotate(7deg); /* Chrome, Safari, Opera */
