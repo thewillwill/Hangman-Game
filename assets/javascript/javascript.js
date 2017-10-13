@@ -435,7 +435,8 @@
 
 
 
-   //Decide what to do with keyboard input
+   // Decide what to do with keyboard input
+   //===================================================
    document.onkeyup = function(event) {
        var keycode = event.keyCode;
        //console.log("User Pressed: " + event.key + " keycode " + keycode);
@@ -457,24 +458,23 @@
    };
 
 
-   // Set up the screen and variables for a new round of 
-   // the game
+   // Set up the visible elements and set variables 
+   // for a new round of the game
    //===================================================
    function setupNewGame() {
        console.log("new game")
        //this is a new game
        resetVariables();
        chooseRandomCity(); //city stored in global variable
-       writePlaceHolder(); // write a line for each letter in the word
+       writePlaceHolder(); // write a '_' for each letter in the word
        resetMessages(); //reset message to user with instructions
        boardingTimeText.innerHTML = boardingTimeHour + ":0" + maxGuesses;
 
+       //check if  the clock is hidden before trying to show it
        if (clockHidden) {
-
-           document.getElementById('clock-text-hidden').id = "clock-text-visible";
+           document.getElementById('clock-text-hidden').id = "clock-text-visible"; //make it visible
            var clockText = document.getElementById("clock-text-visible");
-           clockText.innerHTML = boardingTimeHour + ":00";
-
+           clockText.innerHTML = boardingTimeHour + ":00"; //set the time on the visible clock
            clockHidden = false;
        }
 
@@ -490,27 +490,24 @@
        capitalCityChars = capitalCity.split(''); //create an array of the characters
 
        //create a array of blank Characters of the same length of the capitalCity
-
        for (var i = capitalCityChars.length - 1; i >= 0; i--) {
            //check for space character and display, else display blank line
-
-
-           var spaceChar = /\s/g;
+           var spaceChar = /\s/g; //regex to find space chars
            if (capitalCityChars[i].match(spaceChar)) {
                placeholderChars[i] = spaceHere; //insert a space Character placeholder
-
            } else {
                placeholderChars[i] = blankLetter; //put the blank letter place holder
            }
        }
-       console.log("capitalCity: " + capitalCity);
+       console.log("capitalCity: " + capitalCity); //This should help you get some correct answers for testing
    }
 
-   //check user guess against word
+   //Check user guess against word
+   //===================================================
    function checkGuess(letter) {
        message2.innerHTML = ""; //remove the message explaining each guess takes a minute
        var letterFound = false;
-       // check if letter not already tried
+       // check if letter not already guessed
        if (guessedLetters.includes(letter)) {
            message1.innerHTML = "You have already guessed that key";
        } else {
@@ -535,15 +532,12 @@
 
            guessedLetters.push(letter); //add that letter to the guessed array
 
-
            if (letterFound) {
                //don't increase guess count
            } else {
                // letter not found, add that letter as a guess
-               // remove prevailing blankLetter marker
-               guessedText.innerHTML = (guessedText.innerHTML + " " + letter).replace(blankLetter, "");
+               guessedText.innerHTML = (guessedText.innerHTML + " " + letter).replace(blankLetter, ""); // remove prevailing blankLetter marker
                guesses++;
-               //guessesText.innerHTML = guesses; //display new number of guesses to user
                displayGuessesRemaining();
            }
            //check if they have guessed all of the letters (excluding spaces)
@@ -570,7 +564,7 @@
                if (worldCapitalAirlines) {
                    message2.innerHTML = "Not taking off? Try our <a href='#'' onclick='changeAirlines()'>Domestic Partner Airline</a> or press any key to start again";
 
-               } // show the fligth cancelled stamp
+               } // show the flight cancelled stamp
                if (!stampVisible) {
                    document.getElementById('stamp-hidden').id = "stamp-visible";
                    stampVisible = true;
@@ -582,7 +576,10 @@
        }
 
    }
+   
 
+   //Reset the text displayed to the user
+   //===================================================
    function resetMessages() {
        message1.innerHTML = "We fly to every world capital city. Guess the the destination by typing one letter at a time.";
        var remainingGuesses = maxGuesses - guesses;
@@ -591,12 +588,16 @@
        }
    }
 
+   //Display the updated clock time (guesses used)
+   //===================================================
    function displayGuessesRemaining() {
        var clockText = document.getElementById("clock-text-visible");
        clockText.innerHTML = boardingTimeHour + ":0" + guesses;
 
    }
 
+   //Reset variables for a new round of game
+   //===================================================
    function resetVariables() {
        console.log("Variables reset");
        newGame = false; //no longer a new game
@@ -615,46 +616,64 @@
        }
    }
 
+   //Display the guessed letter in correct order
+   //===================================================
    function writeLetter(letterPos, letter) {
        placeholderChars[letterPos] = letter;
        //put actually space characters on the screen
        wordPlaceHolder.innerHTML = placeholderChars.join("").replace(spaceHere, " ");
    }
 
+   //Display the '_' placeholder
+   //===================================================
    function writePlaceHolder() {
        wordPlaceHolder.innerHTML = placeholderChars.join("");
    }
 
+   //Display the complete word
+   //===================================================
    function displayAnswer() {
        wordPlaceHolder.innerHTML = capitalCity;
    }
 
+   //Change from one airline to another
+   //===================================================
    function changeAirlines() {
+      //check which airline is currently being used
        if (worldCapitalAirlines) {
-           capitalCities = usaCapitals;
+           capitalCities = usaCapitals; //change to usa capitals
            worldCapitalAirlines = false;
-           document.getElementById('stamp-visible').id = "stamp-hidden";
+           document.getElementById('stamp-visible').id = "stamp-hidden"; //remove the flight departed stamp
            stampVisible = false;
+
+           //change the name and colour on ticket
            airlineTitle.innerHTML = "US Capital Air";
            document.getElementById('ticket-stub-top').id = "ticket-stub-top-red";
            document.getElementById('ticket-main-top').id = "ticket-main-top-red";
            resetStats();
+           resetVariables(); //Clear wins and losses
+            message1.innerHTML = "US Capital Air - We fly to all the US Capitals";
+            message2.innerHTML = "Press any key to start";
        } else {
-           capitalCities = worldCapitals;
+           capitalCities = worldCapitals; //change to world capitals
            worldCapitalAirlines = true;
+           //change the name and colour on ticket
            airlineTitle.innerHTML = "World Capital Airlines";
            document.getElementById('ticket-stub-top-red').id = "ticket-stub-top";
            document.getElementById('ticket-main-top-red').id = "ticket-main-top";
            resetStats();
+           resetVariables(); //Clear wins and losses
+           message1.innerHTML = "World Capital Airlines - We fly to all the World Capitals";
+           message2.innerHTML = "Press any key to start";
 
        }
-       resetVariables();
+       
        newGame = true;
-       message1.innerHTML = "US Capital Air - We fly to all the US Capitals";
-       message2.innerHTML = "Press any key to start";
 
    }
 
+   //Clear wins and losses
+   //===================================================
    function resetStats() {
        wins = 0;
        losses = 0;
